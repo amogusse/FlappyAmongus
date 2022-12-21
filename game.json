@@ -3310,7 +3310,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Beginning",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4849,7 +4848,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Barriers",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4932,7 +4930,7 @@
                     "",
                     "Amogus2",
                     "390",
-                    "Amogus1.Y() + RandomInRange(320,335)",
+                    "Amogus1.Y() + RandomInRange(300,305)",
                     "\"\""
                   ]
                 },
@@ -5103,7 +5101,7 @@
                     "",
                     "Amogus2",
                     "390",
-                    "Amogus1.Y() + RandomInRange(305,315)",
+                    "Amogus1.Y() + RandomInRange(295,300)",
                     ""
                   ]
                 },
@@ -5195,7 +5193,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Gameover",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5456,6 +5453,18 @@
                 },
                 {
                   "type": {
+                    "value": "PlaySound"
+                  },
+                  "parameters": [
+                    "",
+                    "Assets\\Sounds,Music\\amogusroundstartsound.wav",
+                    "",
+                    "40",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
                     "value": "Tween::AddObjectOpacityTween"
                   },
                   "parameters": [
@@ -5473,7 +5482,7 @@
                     "value": "Wait"
                   },
                   "parameters": [
-                    "0.45"
+                    "1.3"
                   ]
                 },
                 {
@@ -6063,6 +6072,7 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
+              "folded": true,
               "name": "Mute",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
