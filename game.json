@@ -3304,7 +3304,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Beginning",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -3329,16 +3328,6 @@
                   "parameters": [
                     "ObstacleCollision",
                     "False"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarScene"
-                  },
-                  "parameters": [
-                    "NewHscoreSprite",
-                    "=",
-                    "0"
                   ]
                 },
                 {
@@ -4605,7 +4594,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Scoring",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5205,7 +5193,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Gameover",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -6072,7 +6059,6 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
-              "folded": true,
               "name": "Mute",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -6421,6 +6407,11 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": []
                 }
               ],
               "parameters": []
@@ -7636,8 +7627,8 @@
                 "",
                 "0",
                 "0",
+                "400",
                 "500",
-                "600",
                 "",
                 ""
               ]
