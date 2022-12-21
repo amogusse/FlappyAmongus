@@ -1647,6 +1647,12 @@
       "name": "GlobalHighscore",
       "type": "number",
       "value": 0
+    },
+    {
+      "folded": true,
+      "name": "muted",
+      "type": "boolean",
+      "value": false
     }
   ],
   "layouts": [
@@ -3397,6 +3403,58 @@
                     "High_Score_Changed"
                   ]
                 }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "GlobalVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "muted",
+                        "False"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Mutebutton",
+                        "\"Unmute\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "GlobalVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "muted",
+                        "True"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Mutebutton",
+                        "\"Mute\""
+                      ]
+                    }
+                  ]
+                }
               ]
             },
             {
@@ -3446,74 +3504,6 @@
                   "parameters": [
                     "GameplayStarted",
                     "True"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "DepartScene"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ObjectVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "Mutebutton",
-                    "MuteToggle",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SetAnimationName"
-                  },
-                  "parameters": [
-                    "Mutebutton",
-                    "\"Unmute\""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "DepartScene"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ObjectVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "Mutebutton",
-                    "MuteToggle",
-                    "True"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SetAnimationName"
-                  },
-                  "parameters": [
-                    "Mutebutton",
-                    "\"Mute\""
                   ]
                 }
               ]
@@ -5755,6 +5745,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Music/Sound",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -6072,79 +6063,10 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
-              "folded": true,
               "name": "Mute",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
               "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "DepartScene"
-                      },
-                      "parameters": [
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "VarScene"
-                      },
-                      "parameters": [
-                        "MuteToggleSave",
-                        "=",
-                        "0"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "SetSceneVariableAsBoolean"
-                      },
-                      "parameters": [
-                        "MuteToggle",
-                        ""
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "DepartScene"
-                      },
-                      "parameters": [
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "VarScene"
-                      },
-                      "parameters": [
-                        "MuteToggleSave",
-                        "=",
-                        "1"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "SetSceneVariableAsBoolean"
-                      },
-                      "parameters": [
-                        "MuteToggle",
-                        "True"
-                      ]
-                    }
-                  ]
-                },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
@@ -6158,82 +6080,90 @@
                         "",
                         ""
                       ]
-                    },
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
                     {
-                      "type": {
-                        "value": "SceneVariableAsBoolean"
-                      },
-                      "parameters": [
-                        "GameplayStarted",
-                        "False"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "BuiltinCommonInstructions::Or"
-                      },
-                      "parameters": [],
-                      "subInstructions": [
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
                         {
                           "type": {
-                            "value": "MouseButtonReleased"
+                            "value": "SceneVariableAsBoolean"
                           },
                           "parameters": [
-                            "",
-                            "Left"
+                            "GameplayStarted",
+                            "False"
                           ]
                         },
                         {
                           "type": {
-                            "value": "BuiltinCommonInstructions::And"
+                            "value": "BuiltinCommonInstructions::Or"
                           },
                           "parameters": [],
                           "subInstructions": [
                             {
                               "type": {
-                                "value": "SystemInfo::IsMobile"
-                              },
-                              "parameters": []
-                            },
-                            {
-                              "type": {
-                                "value": "HasTouchEnded"
+                                "value": "MouseButtonReleased"
                               },
                               "parameters": [
                                 "",
-                                "1"
+                                "Left"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "BuiltinCommonInstructions::And"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "value": "SystemInfo::IsMobile"
+                                  },
+                                  "parameters": []
+                                },
+                                {
+                                  "type": {
+                                    "value": "HasTouchEnded"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "1"
+                                  ]
+                                }
                               ]
                             }
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::Once"
+                          },
+                          "parameters": []
                         }
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "BuiltinCommonInstructions::Once"
-                      },
-                      "parameters": []
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "PlaySound"
-                      },
-                      "parameters": [
-                        "",
-                        "Assets\\Sounds,Music\\Click - Sound Effect (HD).wav",
-                        "",
-                        "40",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ToggleSceneVariableAsBoolean"
-                      },
-                      "parameters": [
-                        "MuteToggle"
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "PlaySound"
+                          },
+                          "parameters": [
+                            "",
+                            "Assets\\Sounds,Music\\Click - Sound Effect (HD).wav",
+                            "",
+                            "40",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ToggleGlobalVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "muted"
+                          ]
+                        }
                       ]
                     }
                   ]
@@ -6243,11 +6173,11 @@
                   "conditions": [
                     {
                       "type": {
-                        "value": "SceneVariableAsBoolean"
+                        "value": "GlobalVariableAsBoolean"
                       },
                       "parameters": [
-                        "MuteToggle",
-                        "="
+                        "muted",
+                        "False"
                       ]
                     }
                   ],
@@ -6299,10 +6229,10 @@
                   "conditions": [
                     {
                       "type": {
-                        "value": "SceneVariableAsBoolean"
+                        "value": "GlobalVariableAsBoolean"
                       },
                       "parameters": [
-                        "MuteToggle",
+                        "muted",
                         "True"
                       ]
                     }
@@ -6349,78 +6279,6 @@
                       ]
                     }
                   ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "SceneVariableAsBoolean"
-                      },
-                      "parameters": [
-                        "ObstacleCollision",
-                        "True"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Animation"
-                      },
-                      "parameters": [
-                        "Mutebutton",
-                        "=",
-                        "0"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ModVarScene"
-                      },
-                      "parameters": [
-                        "MuteToggleSave",
-                        "=",
-                        "0"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "SceneVariableAsBoolean"
-                      },
-                      "parameters": [
-                        "ObstacleCollision",
-                        "True"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Animation"
-                      },
-                      "parameters": [
-                        "Mutebutton",
-                        "=",
-                        "1"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ModVarScene"
-                      },
-                      "parameters": [
-                        "MuteToggleSave",
-                        "=",
-                        "1"
-                      ]
-                    }
-                  ]
                 }
               ],
               "parameters": []
@@ -6433,6 +6291,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Skins",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
